@@ -8,3 +8,26 @@
 Yeti2018/Yeti2018 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
+// Simple call:
+MyLoggerDB.getInstance().addLogToDB("Life", "Activity Created");
+
+// Or create ExtLog first:
+MyLoggerDB.getInstance().addLogToDB(new ExtLog("Click", "Button Clicked"));
+
+
+// With onCompletelistener - Simple call:
+MyLoggerDB.getInstance().addLogToDB("Click", "Button Clicked", new MyLoggerDB.LoggerDBCallBack_OnCompleted() {
+    @Override
+    public void onCompleted() {
+        // Do something
+    }
+});
+
+// With onCompletelistener - creating ExtLog first:
+ExtLog log = new ExtLog("Click", "Button Clicked");
+MyLoggerDB.getInstance().addLogToDB(log, new MyLoggerDB.LoggerDBCallBack_OnCompleted() {
+    @Override
+    public void onCompleted() {
+        // Do something
+    }
+});
